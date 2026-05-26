@@ -4,7 +4,8 @@
     "builder": "nixpacks"
   },
   "deploy": {
-    "startCommand": "node scripts/migrate.js && next start",
-    "restartPolicyMaxRetries": 5
+    "startCommand": "node scripts/init-db.js && npx prisma generate && next start",
+    "restartPolicyMaxRetries": 5,
+    "restartPolicyType": "on_failure"
   }
 }
